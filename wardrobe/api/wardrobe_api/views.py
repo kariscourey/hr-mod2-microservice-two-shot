@@ -17,6 +17,7 @@ class LocationEncoder(ModelEncoder):
 
 
 class BinEncoder(ModelEncoder):
+    # anything that uses model encoder gets an href
     model = Bin
     properties = [
         "id",
