@@ -3,11 +3,10 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import ShoesList from './ShoesList';
 import ShoeForm from './ShoeForm';
+import Shoe from './Shoe';
+
 
 function App() {
-
-  // let shoes=loadData("shoes", 8080);
-  // console.log(shoes);
 
   return (
     <BrowserRouter>
@@ -16,9 +15,17 @@ function App() {
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="shoes">
-            {/* <Route path="" element={<ShoesList shoes={loadData("shoes", 8080)} />}></Route> */}
             <Route path="" element={<ShoesList />}></Route>
+              <Route path=":shoeId" element={<Shoe />}></Route>
             <Route path="new" element={<ShoeForm />}></Route>
+            <Route
+                path="*"
+                element={
+                  <main style={{ padding: "1rem" }}>
+                    <p>There's nothing here!</p>
+                  </main>
+                }
+              />
           </Route>
         </Routes>
       </div>

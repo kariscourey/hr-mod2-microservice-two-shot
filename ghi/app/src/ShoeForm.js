@@ -23,7 +23,7 @@ class ShoeForm extends React.Component {
         if (response.ok) {
             const data = await response.json();
             // console.log(data);
-            this.setState({shoeBins:data});
+            this.setState({shoeBins:data.bins});
             // console.log(this.state.shoeBins);
             }
         }
@@ -111,13 +111,13 @@ class ShoeForm extends React.Component {
                         <div className="mb-3">
                             <select onChange={this.handleShoeBinChange} value={this.state.shoeBin} required id="shoeBin" name="shoeBin" className="form-select">
                             <option value="">Choose a bin</option>
-                            {/* {this.state.shoeBins.map(shoeBin => {
+                            {this.state.shoeBins.map(shoeBin => {
                                 return (
                                     <option key={shoeBin.id} value={shoeBin.id}>
-                                        {shoeBin.bin_number}
+                                        {shoeBin.closet_name} {shoeBin.bin_number}
                                     </option>
                                 );
-                            })} */}
+                            })}
                             </select>
                         </div>
                         <button className="btn btn-primary">Create</button>
