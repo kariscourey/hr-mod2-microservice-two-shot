@@ -22,7 +22,10 @@ def get_bins():
     for bin in content["bins"]:
         BinVO.objects.update_or_create(
             import_href=bin["href"],
-            defaults={'bin_number': bin['bin_number']},
+            defaults={
+                'bin_number': bin['bin_number'],
+                'closet_name': bin['closet_name'],
+            },
         )
         # print(BinVO.objects.all())
 

@@ -1,5 +1,7 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
+//OFI redirect elsewhere
 class ShoeForm extends React.Component {
     constructor(props) {
         super(props)
@@ -83,6 +85,8 @@ class ShoeForm extends React.Component {
             };
             this.setState(cleared);
         }
+
+        // return <Redirect to="/shoes" />
     }
 
     render() {

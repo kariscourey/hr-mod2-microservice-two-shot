@@ -1,11 +1,13 @@
 export async function getArticle(article, port, id) {
-  const url = `http://localhost:${port}/api/${article}/${id}/`;
+  const url = `http://localhost:${port}/api/${article}s/${id}/`;
   const response = await fetch(url);
 
   if (response.ok) {
       const data = await response.json();
 
-      return data;
+      // console.log(data[article]);
+      // Angel HERE -- was previously return data;
+      return data[article];
 
       } else {
           console.error(response);

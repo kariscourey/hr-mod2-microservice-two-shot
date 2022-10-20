@@ -11,6 +11,7 @@ class BinVODetailEncoder(ModelEncoder):
     properties = [
         "import_href",
         "bin_number",
+        "closet_name",
     ]
 
 # class ShoeListEncoder(ModelEncoder):

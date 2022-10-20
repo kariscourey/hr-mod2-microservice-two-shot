@@ -1,11 +1,15 @@
 import React from 'react';
 import {getArticles} from './api';
 import { Link, Outlet } from 'react-router-dom';
+// import {handleDelete} from './actions';
 
 function refreshPage() {
     window.location.reload(false);
 }
 
+
+// OFI pass in article, id
+// OFI place in actions, import
 async function handleDelete(event) {
     event.preventDefault();
     // console.log(event.target.value);
