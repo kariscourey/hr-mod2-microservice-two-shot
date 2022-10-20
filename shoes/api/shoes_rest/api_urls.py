@@ -1,9 +1,11 @@
 from django.urls import path
 
 from .api_views import (
-    api_list_shoes,
+    api_shoes,
+    api_shoe,
 )
 
 urlpatterns = [
-    path("shoes/", api_list_shoes, name="api_list_shoes"),
+    path("shoes/", api_shoes, name="api_shoes"),
+    path("shoes/<int:pk>/", api_shoe, name="api_shoe"),
 ]
