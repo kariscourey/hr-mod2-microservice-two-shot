@@ -1,4 +1,44 @@
 import React from 'react';
+import loadData from './api';
+// import Table from 'react-boostrap/Table';
+
+
+function DataTable(props) {
+
+    // console.log(props);
+    let shoes = props.shoes;
+    console.log(shoes);
+
+
+
+    return (
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Manufacturer</th>
+                    <th>Picture</th>
+                    <th>Bin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {shoes.map((shoe) => {
+                    return (
+                        <tr key={shoe.id}>
+                            <td>{shoe.model}</td>
+                            <td>{shoe.manufacturer}</td>
+                            <td>{shoe.picture_url}</td>
+                            <td>{shoe.shoe_bin.bin_number}</td>
+                        </tr>
+                    )
+                })}
+
+            </tbody>
+        </table>
+    );
+  }
+
 
 class ShoesList extends React.Component {
 
@@ -11,36 +51,17 @@ class ShoesList extends React.Component {
 
     async componentDidMount() {
 
-        try {
-            const response = await fetch(`http://localhost:8080/api/shoes/`);
-            // console.log(response);
-
-            if (response.ok) {
-            const data = await response.json();
-            // console.log(data.shoes);
-            this.setState({shoes: data.shoes})
-            } else {
-            console.error(response);
-            }
-
-        } catch (e) {
-            console.error(e);
-        }
+        let shoes_data = await loadData("shoes",8080);
+        // console.log(shoes_data);
+        this.setState({shoes:shoes_data});
 
     }
 
-    // console.log(props);
-    // console.log(props.shoes);
-    // console.log(props.shoes.then());
-
-    // const shoes = loadData("shoes", 8080);
-    // console.log(shoes);
-
     render() {
         return (
-        <div>
-            {this.state.shoes}
-        </div>
+            <div className="row">
+                <DataTable shoes={this.state.shoes} />
+            </div>
     )
 }
 }

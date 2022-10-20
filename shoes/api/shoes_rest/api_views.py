@@ -13,17 +13,17 @@ class BinVODetailEncoder(ModelEncoder):
         "bin_number",
     ]
 
-
-class ShoeListEncoder(ModelEncoder):
-    model = Shoe
-    properties = [
-        "id",
-        "model",
-        ]
+# class ShoeListEncoder(ModelEncoder):
+#     model = Shoe
+#     properties = [
+#         "id",
+#         "model",
+#         ]
 
 class ShoeDetailEncoder(ModelEncoder):
     model = Shoe
     properties = [
+        "id",
         "model",
         "manufacturer",
         "color",
@@ -43,7 +43,7 @@ def api_shoes(request):
         shoes = Shoe.objects.all()
         return JsonResponse(
             {'shoes': shoes},
-            encoder=ShoeListEncoder,
+            encoder=ShoeDetailEncoder,
         )
     else:
         content = json.loads(request.body)
