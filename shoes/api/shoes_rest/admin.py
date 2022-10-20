@@ -4,5 +4,5 @@ from .models import Shoe
 
 
 @admin.register(Shoe)
-class AttendeeAdmin(admin.ModelAdmin):
+class ShoeAdmin(admin.ModelAdmin):
     pass

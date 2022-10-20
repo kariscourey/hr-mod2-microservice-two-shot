@@ -96,3 +96,6 @@ services:
 volumes:
   pgdata:
     external: true
+
+# dumpdata
+# creating instances of models in migration files

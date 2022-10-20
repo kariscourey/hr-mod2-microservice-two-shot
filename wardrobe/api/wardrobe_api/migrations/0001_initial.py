@@ -24,6 +24,18 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='Bin',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('closet_name', models.CharField(max_length=100)),
+                ('bin_number', models.PositiveSmallIntegerField()),
+                ('bin_size', models.PositiveSmallIntegerField()),
+            ],
+            options={
+                'ordering': ('closet_name', 'bin_number', 'bin_size'),
+            },
+        ),
+        migrations.CreateModel(
             name='Location',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
