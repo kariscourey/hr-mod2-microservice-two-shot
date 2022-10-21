@@ -10,7 +10,7 @@ async function handleDelete(event) {
     event.preventDefault();
     // console.log(event.target.value);
     const id = event.target.value;
-    const articleUrl = `http://localhost:8080/api/Hats/${id}/`;
+    const articleUrl = `http://localhost:8090/api/Hats/${id}/`;
     const fetchConfig = {
         method: 'delete',
         headers: {
@@ -86,7 +86,7 @@ class HatsList extends React.Component {
 
     async componentDidMount() {
 
-        let Hats_data = await getArticles("Hats",8080);
+        let Hats_data = await getArticles("hats",8090);
         // console.log(Hats_data);
         this.setState({Hats:Hats_data});
 
