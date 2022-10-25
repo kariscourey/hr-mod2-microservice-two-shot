@@ -44,16 +44,17 @@ def api_list_hats(request,):
     else:
         content = json.loads(request.body)
 
-        # # Get the Conference object and put it in the content dict
-        # try:
-        #     conference_href = f"/api/conferences/{conference_vo_id}/"
-        #     conference = ConferenceVO.objects.get(import_href=conference_href)
-        #     content["conference"] = conference
-        # except ConferenceVO.DoesNotExist:
-        #     return JsonResponse(
-        #         {"message": "Invalid conference id"},
-        #         status=400,
-        #     )
+        # Get the Conference object and put it in the content dict
+        try:
+            location_id = content["location"]
+            location_href = f"/api/locations/{location_id}/"
+            location = LocationVO.objects.get(import_href=location_href)
+            content["location"] = location
+        except LocationVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid location id"},
+                status=400,
+            )
 
         hat = Hat.objects.create(**content)
         return JsonResponse(

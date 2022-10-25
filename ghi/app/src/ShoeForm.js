@@ -5,12 +5,14 @@ import {useNavigate} from 'react-router-dom';
 class ShoeForm extends React.Component {
     constructor(props) {
         super(props)
+        // can just use state =
         this.state = {
             model: '',
             manufacturer: '',
             pictureUrl: '',
             shoeBins: [],
         };
+        // binding can be replaced with => fns
         this.handleModelChange = this.handleModelChange.bind(this);
         this.handleManufacturerChange = this.handleManufacturerChange.bind(this);
         this.handlePictureUrlChange = this.handlePictureUrlChange.bind(this);

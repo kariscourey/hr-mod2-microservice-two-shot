@@ -26,7 +26,8 @@ function App() {
             <Route path="" element={<ShoesList />}></Route>
               <Route path=":shoeId" element={<Shoe />}></Route>
             <Route path="new" element={<ShoeForm />}></Route>
-            <Route
+          </Route>
+          <Route
                 path="*"
                 element={
                   <main style={{ padding: "1rem" }}>
@@ -34,7 +35,6 @@ function App() {
                   </main>
                 }
               />
-          </Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -22,6 +22,9 @@ def get_location():
             "shelf_number": location["shelf_number"],
             },
         )
+
+        print(LocationVO.objects.all())
+
 def poll():
     while True:
         print('Hats poller polling for data')
